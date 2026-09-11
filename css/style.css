@@ -1,49 +1,311 @@
-@import url('https://fonts.googleapis.com/css2?family=Caacupe+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+/* =====================================
+   GENERAL
+===================================== */
 
-.cardImg{
-    width: 150px;
-    height: 100px;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+
+/* =====================================
+   PAGE TITLE
+===================================== */
+
+.pageTitle {
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+}
+
+
+/* =====================================
+   MANAGEMENT
+===================================== */
+
+.managementBox {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.adminPanel {
+    display: none;
+}
+
+
+.adminForm {
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* =====================================
+   CARDS AREA
+===================================== */
+
+#cardsArea {
+    width: 100%;
+    margin: 0;
+}
+
+
+/* =====================================
+   PRODUCT CARD
+===================================== */
+
+.productCard {
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 320px;
+
+    padding: 20px;
+
+    background-color: #ffffff;
+
     border: 2px solid #fff96c;
-    box-shadow: 0px 0px 1px 0px #7c7c7c;
-    transition: 0.4s;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    flex-direction: column;
+
+    transition: 0.3s ease;
+
 }
 
-.cardImg:hover{
-    transform: translateY(-3px);
-    box-shadow: 0px 5px 5px 0px #7c7c7c;
+
+/* Hover */
+
+.productCard:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.20);
+
 }
 
-.productCard{
-    box-shadow: 0px 2px 4px 0px #7c7c7c;
-    transition: 0.4s;
+
+/* =====================================
+   IMAGE
+===================================== */
+
+.imageWrapper {
+
+    width: 100%;
+
+    height: 180px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
 }
 
-.productCard:hover{
-    box-shadow: 0px 7px 7px 0px #7c7c7c;
-    transform: translateY(-2px);
+
+.cardImg {
+
+    width: 100%;
+
+    max-width: 220px;
+
+    height: 160px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    border: 2px solid #fff96c;
+
+    transition: 0.3s ease;
+
 }
 
-.shineEffect{
-    filter: brightness(1.5);
-    box-shadow: 0px 2px 4px 0px #7c7c7c;
-    transition: 0.3s;
+
+.cardImg:hover {
+
+    transform: scale(1.04);
+
 }
 
-.shineEffect:hover{
-    box-shadow: 0px 7px 7px 0px #7c7c7c;
-    background-color: aquamarine;
-    transform: translateY(-3px);
+
+/* =====================================
+   PRODUCT CONTENT
+===================================== */
+
+.cardContent {
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    flex-grow: 1;
+
 }
 
-.titleDiv{
-    font-family: 'Archivo Black', sans-serif;
-}
 
-.productCaption{
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 600;
+.productName {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
     font-size: 18px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
 }
 
+
+.productPrice {
+
+    margin-top: 10px;
+
+    margin-bottom: 0;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================
+   BUY BUTTON
+===================================== */
+
+.buyBtn {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    font-weight: 600;
+
+    border: 2px solid #fff96c;
+
+    transition: 0.3s ease;
+
+}
+
+
+.buyBtn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.20);
+
+}
+
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 991px) {
+
+    .productCard {
+        min-height: 310px;
+    }
+
+    .imageWrapper {
+        height: 170px;
+    }
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 575px) {
+
+    .pageTitle {
+
+        font-size: 26px;
+
+    }
+
+
+    .managementBox {
+
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+
+
+    main.container {
+
+        padding-left: 15px;
+        padding-right: 15px;
+
+    }
+
+
+    .productCard {
+
+        min-height: 300px;
+
+        padding: 15px;
+
+    }
+
+
+    .imageWrapper {
+
+        height: 170px;
+
+    }
+
+
+    .cardImg {
+
+        max-width: 200px;
+
+        height: 150px;
+
+    }
+
+
+    .productName {
+
+        font-size: 17px;
+
+    }
+
+
+    .productPrice {
+
+        font-size: 20px;
+
+    }
+
+}

@@ -1,76 +1,146 @@
 
 let manageBtn = document.getElementById("mgBtn");
-let AdmDiv = document.getElementById("AdminDiv");
+let adminDiv = document.getElementById("AdminDiv");
 let saveBtn = document.getElementById("saveBtn");
 let cardsArea = document.getElementById("cardsArea");
 
 
+class Product {
 
-$(document).ready(function(){
-    $("#mgBtn").click(function(){
-      $("#AdminDiv").slideToggle();
-    });
-});
+    constructor(name, price, image) {
 
+        this.name = name;
 
-saveBtn.addEventListener("click", function(){
-    let cardName = document.getElementById("cardName").value;
-    let cardPrice = document.getElementById("cardPrice").value;
-    let cardImgSrc = document.getElementById("cardImgSrc").value;
+        this.price = price;
 
-    class Product {
-        constructor(name, price, image) {
-            this.name = cardName;
-            this.price = cardPrice;
-            this.image = cardImgSrc;
-        }
+        this.image = image;
+
     }
 
+}
+
+
+$(document).ready(function () {
+
+    $("#mgBtn").click(function () {
+
+        $("#AdminDiv").slideToggle(300);
+
+    });
+
+});
+
+function createProductCard(product) {
+
+    return `
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+            <div class="productCard">
+
+                <!-- Image -->
+
+                <div class="imageWrapper">
+
+                    <img
+                        class="cardImg"
+                        src="img/${product.image}.jpg"
+                        alt="${product.name}"
+                    >
+
+                </div>
+
+
+                <!-- Product Information -->
+
+                <div class="cardContent">
+
+                    <h5 class="productName">
+
+                        ${product.name}
+
+                    </h5>
+
+
+                    <p class="productPrice">
+
+                        ${product.price}$
+
+                    </p>
+
+                </div>
+
+
+                <!-- Buy Button -->
+
+                <button
+                    class="btn btn-success buyBtn"
+                >
+
+                    BUY
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+saveBtn.addEventListener("click", function () {
+
+
+    let cardName =
+        document.getElementById("cardName").value.trim();
+
+
+    let cardPrice =
+        document.getElementById("cardPrice").value.trim();
+
+
+    let cardImgSrc =
+        document.getElementById("cardImgSrc").value.trim();
+
+
+    if (
+        cardName === "" ||
+        cardPrice === "" ||
+        cardImgSrc === ""
+    ) {
+
+        alert("Please fill all fields.");
+
+        return;
+
+    }
+
+
     const product = new Product(
+
         cardName,
+
         cardPrice,
+
         cardImgSrc
+
     );
+
 
     console.log(product);
 
-    cardsArea.innerHTML += `
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 m-3">
-            <div class="productCard bg-light rounded border border-warning h-100 p-3">
-        
-                        
-                        <div class="imgDiv text-center">
-                            <img
-                                class="cardImg rounded"
-                                src="img/${product.image}.jpg"
-                                alt="${product.name}"
-                            >
-                        </div>
-        
-                        
-                        <div class="cardCaption text-center mt-3">
-        
-                            <p class="productCaption mb-2">
-                                ${product.name}
-                            </p>
-        
-                            <p class="h4 mb-3">
-                                ${product.price}
-                            </p>
-        
-                        </div>
-        
-                        
-                        <div class="text-center">
-                            <button class="btn btn-success border-warning shineEffect px-4">
-                                BUY
-                            </button>
-                        </div>
-        
-                    </div>
-        
-                </div>
-        </div>
-    
-    `
+    cardsArea.insertAdjacentHTML(
+        "beforeend",
+
+        createProductCard(product)
+    );
+
+
+    document.getElementById("cardName").value = "";
+    document.getElementById("cardPrice").value = "";
+    document.getElementById("cardImgSrc").value = "";
+
+
 });
