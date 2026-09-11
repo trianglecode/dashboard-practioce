@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Caacupe+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+.cardImg{
+    width: 150px;
+    height: 100px;
+    border: 2px solid #fff96c;
+    box-shadow: 0px 0px 1px 0px #7c7c7c;
+    transition: 0.4s;
+}
+
+.cardImg:hover{
+    transform: translateY(-3px);
+    box-shadow: 0px 5px 5px 0px #7c7c7c;
+}
+
+.productCard{
+    box-shadow: 0px 2px 4px 0px #7c7c7c;
+    transition: 0.4s;
+}
+
+.productCard:hover{
+    box-shadow: 0px 7px 7px 0px #7c7c7c;
+    transform: translateY(-2px);
+}
+
+.shineEffect{
+    filter: brightness(1.5);
+    box-shadow: 0px 2px 4px 0px #7c7c7c;
+    transition: 0.3s;
+}
+
+.shineEffect:hover{
+    box-shadow: 0px 7px 7px 0px #7c7c7c;
+    background-color: aquamarine;
+    transform: translateY(-3px);
+}
+
+.titleDiv{
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.productCaption{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+
