@@ -1,4 +1,3 @@
-
 let manageBtn = document.getElementById("mgBtn");
 let adminDiv = document.getElementById("AdminDiv");
 let saveBtn = document.getElementById("saveBtn");
